@@ -1,17 +1,37 @@
 ---
+import BasicLayout from '../layout/BasicLayout.astro';
+import Card from '../components/Card.astro';
+import "../styles/global.css";
+
+const reponsData = await fetch('https://randomuser.me/api/?results=7');
+const users = await reponsData.json();
 
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-		<h2>Init</h2>
-	</body>
+<BasicLayout>
+
+	<h1 class="mt-8 text-8xl font-deezerbold font-bold mb-6 text-center">Welcome to Deezer</h1>
+
+	<div class="animate-move">
+			<ul class="flex flex-row gap-8 p-4">
+
+			{users.results.map((user) => (
+				<li>
+				<Card firstname={user.name.first} 
+					  lastname={user.name.last} 
+					  email={user.email} 
+					  phone={user.phone} 
+					  locationcity={user.location.city} 
+					  locationcountry={user.location.country} 
+					  picture={user.picture.large}
+					  >
+				{/* Contenu de la carte {user.name.first} */}
+					
+					
+				</Card>
+				</li>
+			))}
+			</ul>
+</div>
+	</BasicLayout>
 </html>

@@ -1,1 +1,29 @@
 @import "tailwindcss";
+
+
+@font-face {
+  font-family: 'DeezerProduct-Extrabold';
+  src: url('/ApiAir/fonts/DeezerProduct-Extrabold.ttf') format('truetype');
+ 
+  font-weight: 800;
+  font-style: normal;
+}
+
+@theme{
+
+
+    --color-primary: #0F0D13;
+    --color-secondary: #A238FF;
+    --color-tertiary: #29282D;
+    --color-quaternary: #6B05C4;
+    --animate-move: move 10s ease-in-out infinite;
+    --font-deezerbold: 'DeezerProduct-Extrabold', sans-serif;
+
+     @keyframes move {
+    to {
+        transform: translateX(-100%);
+    }
+  }
+
+  
+}
